@@ -3,6 +3,7 @@ const Btn = document.querySelector('.search')
 const H3sel = document.querySelector('.H3sel')
 const h1selde = document.querySelector('.h1selde')
 const pseldes = document.querySelector('.pseldes')
+let img = document.querySelector('.icon')
 Btn.addEventListener('click',()=>{
     
     let hi = inputer.value
@@ -15,10 +16,21 @@ Btn.addEventListener('click',()=>{
         h1selde.innerHTML = `${ Math.floor(  e.main.temp)} °C`
         pseldes.innerHTML = `${e.weather[0].description}`
 
+        
+        // console.log(weatherIcon);
+        
         console.log(e);
         // console.log();
         
-        })
+        
+        if(pseldes.innerHTML === 'haze'){
+            img.src="	https://weather-app-abc.vercel.app/img/clouds.png" 
+           
+        }else if(pseldes.innerHTML === 'scattered clouds'){
+            
+            img.innerHTML = `<img src="https://weather-app-abc.vercel.app/img/clouds.png" alt="" class="p-5 imgg">`
+        } 
+    })
 })
 
 
