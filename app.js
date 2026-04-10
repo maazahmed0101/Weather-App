@@ -29,7 +29,9 @@ Btn.addEventListener('click',()=>{
         }else if(pseldes.innerHTML === 'scattered clouds'){
             
             img.innerHTML = `<img src="https://weather-app-abc.vercel.app/img/clouds.png" alt="" class="p-5 imgg">`
-        } 
+        } else if(pseldes.innerHTML === 'moderate rain'){
+            img.innerHTML = `<img src="https://weather-app-abc.vercel.app/img/rain.png" alt="" class="p-5 imgg">`   
+        }
     })
 })
 
