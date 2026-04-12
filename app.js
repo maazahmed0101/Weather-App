@@ -19,18 +19,21 @@ Btn.addEventListener('click',()=>{
         
         // console.log(weatherIcon);
         
-        console.log(e);
+        // console.log(e);
         // console.log();
+        // console.log(e.weather[0].icon);
+        let icon = e.weather[0].icon
         
         
         if(pseldes.innerHTML === 'haze'){
-            img.src="	https://weather-app-abc.vercel.app/img/clouds.png" 
            
+            img.innerHTML = `<img src="https://weather-app-abc.vercel.app/img/clouds.png" alt="" class="p-5 imgg">`
         }else if(pseldes.innerHTML === 'scattered clouds'){
             
             img.innerHTML = `<img src="https://weather-app-abc.vercel.app/img/clouds.png" alt="" class="p-5 imgg">`
         } else if(pseldes.innerHTML === 'moderate rain'){
-            img.innerHTML = `<img src="https://weather-app-abc.vercel.app/img/rain.png" alt="" class="p-5 imgg">`   
+        }else{
+            img.innerHTML = `<img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="" class="p-5 imgtarla imgg">`    
         }
     })
 })
