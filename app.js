@@ -12,31 +12,28 @@ Btn.addEventListener('click', () => {
     )
         .then(e => e.json())
         .then(e => {
-            H3sel.innerHTML = `${e.name}, ${e.sys.country}`;
-            h1selde.innerHTML = `${Math.floor(e.main.temp)} °C`
-            pseldes.innerHTML = `${e.weather[0].description}`
+            try {
 
+                H3sel.innerHTML = `${e.name}, ${e.sys.country}`;
+                h1selde.innerHTML = `${Math.floor(e.main.temp)} °C`
+                pseldes.innerHTML = `${e.weather[0].description}`
+                let icon = e.weather[0].icon
+                if (pseldes.innerHTML === 'haze') {
 
-            // console.log(weatherIcon);
+                    img.innerHTML = `<img src="https://weather-app-abc.vercel.app/img/clouds.png" alt="" class=" imgg">`
+                } else if (pseldes.innerHTML === 'scattered clouds') {
 
-            // console.log(e);
-            // console.log();
-            // console.log(e.weather[0].icon);
-            let icon = e.weather[0].icon
-
-
-            if (pseldes.innerHTML === 'haze') {
-
-                img.innerHTML = `<img src="https://weather-app-abc.vercel.app/img/clouds.png" alt="" class="p-5 imgg">`
-            } else if (pseldes.innerHTML === 'scattered clouds') {
-
-                img.innerHTML = `<img src="https://weather-app-abc.vercel.app/img/clouds.png" alt="" class="p-5 imgg">`
-            } else if (pseldes.innerHTML === 'moderate rain') {
-            } else {
-                img.innerHTML = `<img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="" class="p-5 imgtarla imgg">`
+                    img.innerHTML = `<img src="https://weather-app-abc.vercel.app/img/clouds.png" alt="" class=" imgg">`
+                } else if (pseldes.innerHTML === 'moderate rain') {
+                } else {
+                    img.innerHTML = `<img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="" class=" imgtarla imgg">`
+                }
+            } catch (error) {
+                alert('Please enter a valid city name')
             }
+
+
         })
 })
-
 
 
